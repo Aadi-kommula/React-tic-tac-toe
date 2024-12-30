@@ -4,6 +4,8 @@ import './App.css'
 function App() {
   
   const[flag, setFlag] = useState(true)
+  const[Drawn, setDrawn] = useState(false)
+
 
   const[count, setCount] = useState(0)
   let temp=8;
@@ -26,7 +28,10 @@ function Checkwin(){
       }
       
       else if(count===temp){
-          document.getElementById('result').innerHTML="Game is drawn"      }
+          document.getElementById('result').innerHTML="Game is drawn"   
+          setDrawn(true)
+        }
+
     }
     
     
@@ -35,7 +40,10 @@ function Checkwin(){
   const[player, setPlayer] = useState('O')
 
   function Add(index){
-
+    if(Drawn){
+      Checkwin()
+      alert("Game is drawn Try Restarting Game")
+    }
     if(flag){
       if((document.getElementById(index).innerHTML==="")){
         if(player==='X'){
@@ -51,8 +59,8 @@ function Checkwin(){
           setPlayer('X')
         }
       }
-      else{
-        alert('Double Click on any cell is not allowed')
+      else if(!Drawn){
+        alert('Double Click  not allowed')
       }
     }
     else{
