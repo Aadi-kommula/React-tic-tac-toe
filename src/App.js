@@ -64,7 +64,7 @@ function Checkwin(){
       }
     }
     else{
-      alert("Gave is already Over. Try restarting the game")
+      alert("Game is already Over. Try restarting the game")
     }
 
      
